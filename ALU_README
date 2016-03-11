@@ -1,0 +1,19 @@
+README for Verilog Arithmetic Logic Unit
+By: Andrew D Booth
+
+Submission is a 32-bit bit slice ALU.
+Has inputs a, b, opcode
+Has outputs ZERO, out, OVERFLOW, cout
+
+ZERO output can be used in a processor with BEQ instructions
+OVERFLOW asserts a 1 when overflow occurred
+cout outputs the carry out of the most significant bit during addition, which can be used for using two ALUs in parallel
+
+Defined modules:
+ - muxTwo: single bit 2-to-1 multiplexer
+ - muxFour: single bit 4-to-1 multiplexer. Made up of 3 muxTwos
+ - fullAdder: single bit adder with inputs a, b, cin (carry in) and outputs sum and cout (carry out)
+ - bitSlice: single bit ALU, can perform by itself ANDing, ORing, addition and subtraction. Has set and less inputs/outputs for SLT
+ - ALU: 32-bit ALU, has nor gate for ZERO, XOR gates for OVERFLOW and set (for SLT)
+
+Simulation is done using the test bench ALUTester
